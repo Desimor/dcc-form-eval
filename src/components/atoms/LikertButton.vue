@@ -1,5 +1,6 @@
 <script setup lang="ts">
     defineProps<{
+        name: string
         value: number
         label: string
         selected: boolean
@@ -11,47 +12,45 @@
 </script>
 
 <template>
-    <button type="button" class="likert-button" :class="{ 'likert-button--selected': selected }"
-        :aria-pressed="selected" @click="$emit('select', value)">
-        <span class="likert-button__value">{{ value }}</span>
+    <label class="likert-button" :class="{ 'likert-button--selected': selected }">
+        <input type="radio" class="likert-button__input" :name="name" :value="value" :checked="selected"
+            @change="$emit('select', value)" />
         <span class="likert-button__label">{{ label }}</span>
-    </button>
+    </label>
 </template>
 
 <style scoped>
     .likert-button {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 0.25rem;
+        gap: 0.4rem;
         min-width: 4.5rem;
-        padding: 0.5rem 0.25rem;
-        border: 1px solid var(--color-border);
-        border-radius: 6px;
-        background: var(--color-background-soft);
         color: var(--color-text);
         cursor: pointer;
-        font-size: 0.7rem;
-        text-align: center;
+        font-size: 0.8rem;
+        text-align: left;
         line-height: 1.2;
-        transition:
-            background-color 0.15s,
-            border-color 0.15s,
-            color 0.15s;
     }
 
-    .likert-button:hover {
-        border-color: hsla(160, 100%, 37%, 1);
+    .likert-button:hover .likert-button__input {
+        outline: 2px solid hsla(160, 100%, 37%, 1);
+        outline-offset: 2px;
     }
 
-    .likert-button--selected {
-        background: hsla(160, 100%, 37%, 1);
-        border-color: hsla(160, 100%, 37%, 1);
-        color: #fff;
-    }
-
-    .likert-button__value {
+    .likert-button--selected .likert-button__label {
+        color: hsla(160, 100%, 37%, 1);
         font-weight: 700;
-        font-size: 1rem;
+    }
+
+    .likert-button__input {
+        width: 1.15rem;
+        height: 1.15rem;
+        accent-color: hsla(160, 100%, 37%, 1);
+        cursor: pointer;
+    }
+
+    .likert-button__label {
+        font-weight: 500;
     }
 </style>

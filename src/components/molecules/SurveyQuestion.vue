@@ -18,8 +18,8 @@
         <legend class="survey-question__text"><span class="survey-question__number">{{ number }}.</span> {{ text }}
         </legend>
         <div class="survey-question__options">
-            <LikertButton v-for="option in likertOptions" :key="option.value" :value="option.value"
-                :label="option.label" :selected="modelValue === option.value"
+            <LikertButton v-for="option in likertOptions" :key="option.value" :name="`question-${number}`"
+                :value="option.value" :label="option.label" :selected="modelValue === option.value"
                 @select="$emit('update:modelValue', $event)" />
         </div>
     </fieldset>

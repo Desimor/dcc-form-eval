@@ -1,9 +1,7 @@
 <script setup lang="ts">
-  import TheWelcome from '../components/organisms/TheWelcome.vue'
+  import SurveyForm from '@/components/organisms/SurveyForm.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <SurveyForm />
 </template>

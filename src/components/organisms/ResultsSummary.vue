@@ -16,9 +16,14 @@
 <template>
     <section class="results-summary">
         <h2 class="results-summary__heading">Your Results</h2>
+        <p class="results-summary__intro">Here is a summary of your survey results based on the categories. These four
+            areas - Discovery, Dependence, Development, and Direction - are the core values of Destiny Community Church.
+            We believe that in order to be a well-rounded Christian, every believer should excel in these four areas.
+            After you determine your scores, read the action steps on the following page.</p>
         <div class="results-summary__grid">
             <ResultCard v-for="category in resultCategories" :key="category.key" :score="store.scores[category.key]"
-                :title="category.title" :description="category.description" />
+                :title="category.title" :description="category.description" :description2="category.description2"
+                :description3="category.description3" />
         </div>
         <button type="button" class="results-summary__retake" @click="retake">Retake Survey</button>
     </section>
@@ -29,6 +34,12 @@
         text-align: center;
         margin-bottom: 1.5rem;
         color: var(--color-heading);
+    }
+
+    .results-summary__intro {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--color-text);
     }
 
     .results-summary__grid {

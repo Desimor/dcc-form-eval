@@ -11,6 +11,8 @@
         if (store.isComplete) {
             router.push('/results')
         }
+        // TODO: re-enable store.isComplete check once testing is done
+        router.push('/results')
     }
 </script>
 
@@ -21,7 +23,10 @@
         <SurveyQuestion v-for="(text, index) in questions" :key="index" :number="index + 1" :text="text"
             :model-value="store.answers[index] ?? null" @update:model-value="store.setAnswer(index, $event)" />
 
-        <button type="submit" class="survey-form__submit" :disabled="!store.isComplete">
+        <!-- <button type="submit" class="survey-form__submit" :disabled="!store.isComplete">
+            Submit
+        </button> -->
+        <button type="submit" class="survey-form__submit">
             Submit
         </button>
     </form>

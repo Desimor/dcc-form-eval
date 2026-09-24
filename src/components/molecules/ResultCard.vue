@@ -3,6 +3,8 @@
         score: number
         title: string
         description: string
+        description2: string
+        description3: string
     }>()
 </script>
 
@@ -11,6 +13,8 @@
         <div class="result-card__score">{{ score }}</div>
         <h3 class="result-card__title">{{ title }}</h3>
         <p class="result-card__description">{{ description }}</p>
+        <p class="result-card__description">{{ description2 }}</p>
+        <p class="result-card__description">{{ description3 }}</p>
     </div>
 </template>
 
@@ -37,6 +41,8 @@
 
     .result-card__description {
         font-size: 0.9rem;
+        text-align: left;
         color: var(--color-text);
+        margin-bottom: 0.5rem;
     }
 </style>

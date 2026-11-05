@@ -2,20 +2,19 @@
     defineProps<{
         score: number
         title: string
-        description: string
-        description2: string
-        description3: string
+        active: boolean
+    }>()
+
+    defineEmits<{
+        select: []
     }>()
 </script>
 
 <template>
-    <div class="result-card">
+    <button type="button" class="result-card" :class="{ 'result-card--active': active }" @click="$emit('select')">
         <div class="result-card__score">{{ score }}</div>
         <h3 class="result-card__title">{{ title }}</h3>
-        <p class="result-card__description">{{ description }}</p>
-        <p class="result-card__description">{{ description2 }}</p>
-        <p class="result-card__description">{{ description3 }}</p>
-    </div>
+    </button>
 </template>
 
 <style scoped>
@@ -25,7 +24,23 @@
         align-items: center;
         gap: 0.5rem;
         padding: 1rem;
+        border: 1px solid var(--color-border);
+        border-radius: 6px;
+        background: var(--color-background-soft);
         text-align: center;
+        cursor: pointer;
+        transition:
+            border-color 0.15s,
+            background-color 0.15s;
+    }
+
+    .result-card:hover {
+        border-color: hsla(160, 100%, 37%, 1);
+    }
+
+    .result-card--active {
+        border-color: hsla(160, 100%, 37%, 1);
+        background: hsla(160, 100%, 37%, 0.1);
     }
 
     .result-card__score {
@@ -36,13 +51,7 @@
 
     .result-card__title {
         font-size: 1.1rem;
+        margin: 0;
         color: var(--color-heading);
-    }
-
-    .result-card__description {
-        font-size: 0.9rem;
-        text-align: left;
-        color: var(--color-text);
-        margin-bottom: 0.5rem;
     }
 </style>

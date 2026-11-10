@@ -49,10 +49,10 @@ export interface LikertOption {
 }
 
 export const likertOptions: LikertOption[] = [
-  { value: 0, label: 'Strongly Disagree' },
-  { value: 1, label: 'Disagree' },
-  { value: 2, label: 'Somewhat Disagree' },
-  { value: 3, label: 'Somewhat Agree' },
-  { value: 4, label: 'Agree' },
   { value: 5, label: 'Strongly Agree' },
+  { value: 4, label: 'Agree' },
+  { value: 3, label: 'Somewhat Agree' },
+  { value: 2, label: 'Somewhat Disagree' },
+  { value: 1, label: 'Disagree' },
+  { value: 0, label: 'Strongly Disagree' },
 ]
